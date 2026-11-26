@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>九一麻花_99制品厂麻花_果冻</title>
+<meta name="description" content="九一麻花是社区视频创作品牌，聚合麻花系列短剧、果冻动画与幕后花絮，提供分集更新表、创作解析、社区评论与观看指南，适合追更短剧和了解动画制作的观众。">
+<meta name="keywords" content="麻花短剧,果冻动画,99制品厂,社区创作,分集更新">
+<style>
+:root{
+  --bg:#0f1116;
+  --bg-2:#161923;
+  --panel:#1b1f2b;
+  --panel-2:#222838;
+  --line:#2c3345;
+  --line-soft:#242a38;
+  --text:#e8ecf4;
+  --text-2:#aab3c5;
+  --text-3:#7d879c;
+  --brand:#ffb020;
+  --brand-2:#ff7a3d;
+  --accent:#4dd2c0;
+  --accent-2:#7c8cff;
+  --radius:14px;
+  --radius-sm:9px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --header-h:60px;
+  --notice-h:38px;
+  --font:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--font);background:var(--bg);color:var(--text);
+  line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0}
+button{font-family:inherit}
+
+/* ============ 吸顶公告条 ============ */
+.notice{
+  position:sticky;top:0;z-index:60;height:var(--notice-h);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(90deg,#2a1b0a,#3a2410 45%,#2a1b0a);
+  border-bottom:1px solid #4a3212;color:#ffd9a0;font-size:13px;
+  padding:0 16px;text-align:center;overflow:hidden;white-space:nowrap;
+}
+.notice b{color:var(--brand);font-weight:700}
+.notice .dot{width:7px;height:7px;border-radius:50%;background:var(--brand-2);flex:none;box-shadow:0 0 0 3px rgba(255,122,61,.2)}
+
+/* ============ 页头 ============ */
+.header{
+  position:sticky;top:var(--notice-h);z-index:55;
+  background:rgba(15,17,22,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1320px;margin:0 auto;height:var(--header-h);
+  display:flex;align-items:center;gap:22px;padding:0 20px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex:none}
+.logo-mark{
+  width:34px;height:34px;border-radius:10px;flex:none;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  display:grid;place-items:center;box-shadow:0 4px 14px rgba(255,122,61,.35);
+}
+.logo-mark svg{width:20px;height:20px}
+.logo-text{font-size:18px;font-weight:800;letter-spacing:.5px;white-space:nowrap}
+.logo-text small{display:block;font-size:10px;font-weight:500;color:var(--text-3);letter-spacing:2px;line-height:1}
+.nav{display:flex;gap:4px;flex:1;min-width:0;overflow:hidden}
+.nav a{
+  padding:7px 11px;border-radius:8px;font-size:13.5px;color:var(--text-2);
+  white-space:nowrap;transition:.18s;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--panel-2);color:var(--brand);outline:none}
+.nav a:focus-visible{box-shadow:0 0 0 2px var(--brand)}
+.header-tools{display:flex;align-items:center;gap:8px;flex:none}
+.search-box{position:relative}
+.search-box input{
+  width:190px;height:34px;border-radius:9px;border:1px solid var(--line);
+  background:var(--panel);color:var(--text);padding:0 12px 0 32px;font-size:13px;
+  transition:.2s;
+}
+.search-box input::placeholder{color:var(--text-3)}
+.search-box input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(255,176,32,.15);width:220px}
+.search-box .ico{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--text-3);pointer-events:none}
+.btn-ghost{
+  height:34px;padding:0 14px;border-radius:9px;border:1px solid var(--line);
+  background:transparent;color:var(--text-2);font-size:13px;cursor:pointer;transition:.2s;white-space:nowrap;
+}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
+.btn-ghost:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.menu-btn{display:none;width:36px;height:34px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;align-items:center;justify-content:center}
+.menu-btn:focus-visible{outline:2px solid var(--brand)}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:var(--bg-2);padding:8px 16px 14px}
+.mobile-nav.open{display:flex;flex-wrap:wrap;gap:6px}
+.mobile-nav a{padding:7px 12px;border-radius:8px;background:var(--panel);font-size:13px;color:var(--text-2)}
+.mobile-nav a:hover{color:var(--brand)}
+
+/* ============ 首屏 ============ */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(900px 400px at 78% -10%,rgba(255,122,61,.18),transparent 60%),radial-gradient(700px 380px at 8% 110%,rgba(124,140,255,.14),transparent 60%),var(--bg-2)}
+.hero-inner{max-width:1320px;margin:0 auto;padding:52px 20px 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:1.5px;color:var(--brand);border:1px solid rgba(255,176,32,.35);background:rgba(255,176,32,.08);padding:5px 12px;border-radius:99px;margin-bottom:18px}
+.hero h1{font-size:clamp(34px,4.4vw,52px);letter-spacing:1px;background:linear-gradient(100deg,#fff 10%,#ffd08a 50%,var(--brand-2) 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-desc{margin-top:18px;color:var(--text-2);font-size:15.5px;max-width:560px}
+.hero-desc strong{color:var(--brand);font-weight:600}
+.hero-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 22px;border-radius:11px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#1a1206;font-weight:700;font-size:14.5px;
+  border:none;cursor:pointer;box-shadow:0 8px 22px rgba(255,122,61,.3);transition:.2s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,122,61,.42)}
+.btn-primary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn-line{
+  display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:11px;
+  border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:14.5px;cursor:pointer;transition:.2s;
+}
+.btn-line:hover{border-color:var(--brand);color:var(--brand)}
+.hero-stats{display:flex;gap:30px;margin-top:34px;flex-wrap:wrap}
+.hero-stats div b{display:block;font-size:22px;color:var(--text);font-weight:800}
+.hero-stats div span{font-size:12px;color:var(--text-3);letter-spacing:1px}
+.hero-visual{position:relative;height:340px}
+.hv-card{
+  position:absolute;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:var(--shadow);background:var(--panel);
+}
+.hv-card img{width:100%;height:100%;object-fit:cover}
+.hv-1{width:60%;height:78%;right:4%;top:2%;transform:rotate(3deg);z-index:2}
+.hv-2{width:46%;height:56%;left:0;bottom:2%;transform:rotate(-5deg);z-index:3}
+.hv-3{width:34%;height:36%;right:0;bottom:0;transform:rotate(6deg);z-index:1}
+.hv-badge{
+  position:absolute;left:-6px;top:6%;z-index:4;background:rgba(22,25,35,.94);
+  border:1px solid var(--line);border-radius:11px;padding:9px 14px;font-size:12px;color:var(--text-2);
+  backdrop-filter:blur(6px);box-shadow:var(--shadow);
+}
+.hv-badge b{color:var(--brand);display:block;font-size:15px;margin-bottom:2px}
+
+/* ============ 布局：三栏门户 ============ */
+.layout{
+  max-width:1320px;margin:0 auto;padding:34px 20px 10px;
+  display:grid;grid-template-columns:178px minmax(0,1fr) 268px;gap:30px;align-items:start;
+}
+.channel-bar{position:sticky;top:calc(var(--notice-h) + var(--header-h) + 20px)}
+.channel-title{font-size:11px;letter-spacing:2px;color:var(--text-3);padding:0 10px 10px;font-weight:600}
+.channel-list{display:flex;flex-direction:column;gap:2px}
+.channel-list a{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:9px 11px;border-radius:9px;font-size:13.5px;color:var(--text-2);transition:.16s;border-left:2px solid transparent;
+}
+.channel-list a:hover,.channel-list a:focus-visible{background:var(--panel);color:var(--brand);border-left-color:var(--brand);outline:none}
+.channel-list a span{font-size:11px;color:var(--text-3);background:var(--panel-2);padding:1px 7px;border-radius:99px}
+.channel-note{margin-top:16px;padding:14px;border-radius:var(--radius-sm);background:var(--panel);border:1px solid var(--line-soft);font-size:12px;color:var(--text-3);line-height:1.7}
+.channel-note b{color:var(--accent);display:block;margin-bottom:4px;font-size:12.5px}
+
+/* 主栏 */
+.main-col{min-width:0;display:flex;flex-direction:column;gap:34px}
+.section{scroll-margin-top:calc(var(--notice-h) + var(--header-h) + 16px)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line-soft)}
+.sec-head h2{font-size:20px;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
+.sec-head h2::before{content:"";width:4px;height:18px;border-radius:2px;background:linear-gradient(var(--brand),var(--brand-2));flex:none}
+.sec-head .sub{font-size:12.5px;color:var(--text-3);white-space:nowrap}
+.sec-head a.more{font-size:12.5px;color:var(--text-3);white-space:nowrap}
+.sec-head a.more:hover{color:var(--brand)}
+
+/* 概览 */
+.overview{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius);padding:24px 26px}
+.overview p{color:var(--text-2);font-size:14.5px;margin-bottom:12px}
+.overview p:last-child{margin-bottom:0}
+.overview b{color:var(--text);font-weight:600}
+.overview .mark{color:var(--brand);font-weight:600}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{
+  background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.2s;
+}
+.card:hover{border-color:#3a4358;transform:translateY(-2px);box-shadow:var(--shadow)}
+.card-cover{position:relative;aspect-ratio:400/220;overflow:hidden;background:var(--panel-2)}
+.card-cover img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.card:hover .card-cover img{transform:scale(1.04)}
+.card-type{
+  position:absolute;left:10px;top:10px;font-size:11px;padding:3px 9px;border-radius:6px;
+  background:rgba(15,17,22,.82);color:var(--brand);border:1px solid rgba(255,176,32,.4);backdrop-filter:blur(4px);
+}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:15.5px;letter-spacing:.2px}
+.card-body .desc{font-size:13px;color:var(--text-2);line-height:1.65;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;padding:2px 8px;border-radius:99px;background:var(--panel-2);color:var(--text-3);border:1px solid var(--line-soft)}
+.card-meta{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--text-3);margin-top:4px;padding-top:10px;border-top:1px dashed var(--line-soft)}
+.card-meta .hot{color:var(--brand-2)}
+.score{color:var(--accent);font-weight:700}
+
+/* 最新更新列表 */
+.update-list{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden}
+.update-item{display:flex;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line-soft);align-items:flex-start;transition:.18s}
+.update-item:last-child{border-bottom:none}
+.update-item:hover{background:var(--panel-2)}
+.update-time{flex:none;width:76px;font-size:12px;color:var(--text-3);padding-top:2px}
+.update-time em{display:block;font-style:normal;color:var(--brand);font-size:11px;margin-bottom:2px}
+.update-main{flex:1;min-width:0}
+.update-main h4{font-size:14px;font-weight:600;margin-bottom:3px}
+.update-main h4 .badge{font-size:10.5px;padding:1px 7px;border-radius:5px;background:rgba(77,210,192,.14);color:var(--accent);margin-left:8px;font-weight:500;vertical-align:middle}
+.update-main p{font-size:12.5px;color:var(--text-2);line-height:1.6}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat-item{
+  display:flex;flex-direction:column;gap:5px;padding:15px 16px;border-radius:var(--radius-sm);
+  background:var(--panel);border:1px solid var(--line-soft);transition:.18s;
+}
+.cat-item:hover{border-color:var(--brand);background:var(--panel-2)}
+.cat-item:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.cat-item b{font-size:14px}
+.cat-item span{font-size:11.5px;color:var(--text-3)}
+
+/* 深度解析 */
+.deep{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius);padding:26px 28px}
+.deep h3{font-size:16.5px;margin:22px 0 10px;color:var(--text);display:flex;align-items:center;gap:9px}
+.deep h3:first-child{margin-top:0}
+.deep h3::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand-2);flex:none}
+.deep p{color:var(--text-2);font-size:14px;margin-bottom:10px}
+.deep ul{margin:8px 0 14px;padding-left:0}
+.deep ul li{position:relative;padding-left:18px;color:var(--text-2);font-size:14px;margin-bottom:6px}
+.deep ul li::before{content:"";position:absolute;left:4px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.deep ul li b{color:var(--text);font-weight:600}
+.deep .quote{
+  margin:16px 0;padding:14px 18px;border-left:3px solid var(--brand);
+  background:var(--bg-2);border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  font-size:13.5px;color:var(--text-2);
+}
+.deep .quote b{color:var(--brand)}
+
+/* 体验指南 步骤 */
+.steps{display:flex;flex-direction:column;gap:0;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden}
+.step{display:flex;gap:16px;padding:18px 20px;border-bottom:1px solid var(--line-soft);position:relative}
+.step:last-child{border-bottom:none}
+.step-no{
+  flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(255,176,32,.2),rgba(255,122,61,.1));
+  color:var(--brand);font-weight:800;font-size:13px;border:1px solid rgba(255,176,32,.3);
+}
+.step-body h4{font-size:14.5px;margin-bottom:4px}
+.step-body p{font-size:13px;color:var(--text-2);line-height:1.7}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:10px}
+.faq details{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius-sm);overflow:hidden}
+.faq details[open]{border-color:rgba(255,176,32,.35)}
+.faq summary{
+  cursor:pointer;padding:14px 18px;font-size:14px;font-weight:600;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;transition:.16s;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--brand)}
+.faq summary:focus-visible{outline:2px solid var(--brand);outline-offset:-2px}
+.faq summary::after{content:"+";font-size:18px;color:var(--brand);font-weight:400;flex:none;transition:.2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 18px 16px;font-size:13.5px;color:var(--text-2);line-height:1.75}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.comment{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:14px 16px}
+.comment-head{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.avatar{
+  width:28px;height:28px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:#1a1206;
+}
+.comment-head b{font-size:12.5px;font-weight:600}
+.comment-head time{font-size:11px;color:var(--text-3);margin-left:auto}
+.comment p{font-size:13px;color:var(--text-2);line-height:1.65}
+.comment p em{font-style:normal;color:var(--brand)}
+
+/* 资讯 */
+.news-list{display:flex;flex-direction:column;gap:12px}
+.news-item{display:flex;gap:14px;padding:14px;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius-sm);transition:.18s}
+.news-item:hover{border-color:#3a4358}
+.news-item img{width:104px;height:70px;border-radius:8px;object-fit:cover;flex:none}
+.news-main{min-width:0}
+.news-main h4{font-size:14px;margin-bottom:4px}
+.news-main p{font-size:12.5px;color:var(--text-2);line-height:1.6}
+.news-main time{display:block;font-size:11px;color:var(--text-3);margin-top:5px}
+
+/* 相关推荐 标签索引 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:9px}
+.rec-tags a{
+  padding:7px 14px;border-radius:99px;background:var(--panel);border:1px solid var(--line-soft);
+  font-size:13px;color:var(--text-2);transition:.16s;
+}
+.rec-tags a:hover{border-color:var(--brand);color:var(--brand);background:var(--panel-2)}
+.rec-tags a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+/* 榜单 */
+.rank-list{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden}
+.rank-item{display:flex;align-items:center;gap:13px;padding:12px 18px;border-bottom:1px solid var(--line-soft)}
+.rank-item:last-child{border-bottom:none}
+.rank-no{flex:none;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:12px;font-weight:800;background:var(--panel-2);color:var(--text-3)}
+.rank-item:nth-child(1) .rank-no{background:linear-gradient(135deg,#ffd15c,#ff9a3d);color:#241505}
+.rank-item:nth-child(2) .rank-no{background:linear-gradient(135deg,#d8e0ef,#9aa7c0);color:#20242e}
+.rank-item:nth-child(3) .rank-no{background:linear-gradient(135deg,#e0a97a,#b97a44);color:#241505}
+.rank-name{flex:1;min-width:0;font-size:13.5px;font-weight:600}
+.rank-name span{display:block;font-size:11.5px;color:var(--text-3);font-weight:400;margin-top:1px}
+.rank-val{font-size:12.5px;color:var(--brand-2);flex:none}
+
+/* 右栏 */
+.aside{display:flex;flex-direction:column;gap:22px;position:sticky;top:calc(var(--notice-h) + var(--header-h) + 20px)}
+.aside-card{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius);padding:18px}
+.aside-card h3{font-size:14px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.aside-card h3::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--accent);flex:none}
+.hot-list{display:flex;flex-direction:column;gap:10px}
+.hot-list li{display:flex;gap:10px;font-size:13px;color:var(--text-2);line-height:1.5}
+.hot-list li .n{flex:none;width:18px;color:var(--text-3);font-weight:700;font-size:12px;padding-top:1px}
+.hot-list li:nth-child(-n+3) .n{color:var(--brand)}
+.hot-list li:hover{color:var(--brand);cursor:pointer}
+.timeline{display:flex;flex-direction:column;gap:0;position:relative;padding-left:14px}
+.timeline::before{content:"";position:absolute;left:3px;top:4px;bottom:4px;width:1px;background:var(--line)}
+.tl-item{position:relative;padding:0 0 14px 8px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-14px;top:6px;width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 3px var(--panel)}
+.tl-item time{display:block;font-size:11px;color:var(--text-3);margin-bottom:2px}
+.tl-item b{font-size:12.5px;font-weight:600;display:block;margin-bottom:2px}
+.tl-item p{font-size:11.5px;color:var(--text-2);line-height:1.55}
+.trust{display:flex;flex-direction:column;gap:8px}
+.trust-row{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-2)}
+.trust-row .bar{flex:1;height:6px;border-radius:99px;background:var(--panel-2);overflow:hidden}
+.trust-row .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--brand))}
+.trust-row b{width:38px;text-align:right;color:var(--text);font-size:12px;font-weight:600}
+
+/* 页尾 */
+.footer{margin-top:44px;border-top:1px solid var(--line);background:var(--bg-2)}
+.footer-inner{max-width:1320px;margin:0 auto;padding:40px 20px 26px}
+.footer-top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px;padding-bottom:28px;border-bottom:1px solid var(--line-soft)}
+.footer-brand .logo{margin-bottom:12px}
+.footer-brand p{font-size:12.5px;color:var(--text-3);line-height:1.8;max-width:280px}
+.footer-col h4{font-size:13px;margin-bottom:12px;color:var(--text)}
+.footer-col a{display:block;font-size:12.5px;color:var(--text-3);padding:4px 0;transition:.16s}
+.footer-col a:hover{color:var(--brand)}
+.footer-bottom{padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--text-3);line-height:1.7}
+.footer-bottom .meta span{margin-right:14px}
+.footer-bottom a:hover{color:var(--brand)}
+
+/* 搜索无结果 */
+.no-result{display:none;padding:26px;text-align:center;color:var(--text-3);font-size:13.5px;background:var(--panel);border:1px dashed var(--line);border-radius:var(--radius)}
+.no-result.show{display:block}
+.hidden{display:none !important}
+
+/* ============ 响应式 ============ */
+@media (max-width:1024px){
+  .layout{grid-template-columns:1fr 268px;gap:24px}
+  .channel-bar{display:none}
+  .header-inner{gap:14px}
+  .nav{display:none}
+  .menu-btn{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:28px;padding:40px 20px 44px}
+  .hero-visual{height:280px;max-width:480px}
+  .cat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:740px){
+  :root{--notice-h:auto;--header-h:56px}
+  .notice{height:auto;padding:7px 14px;white-space:normal;font-size:12px;line-height:1.5}
+  .layout{grid-template-columns:1fr;padding:24px 16px 6px;gap:30px}
+  .aside{position:static;flex-direction:column}
+  .card-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .comments{grid-template-columns:1fr}
+  .search-box{display:none}
+  .hero-visual{height:230px}
+  .hv-badge{font-size:11px;padding:7px 11px}
+  .deep{padding:20px 18px}
+  .overview{padding:20px 18px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:22px}
+  .footer-brand{grid-column:1/-1}
+  .news-item img{width:84px;height:60px}
+  .sec-head{flex-wrap:wrap;gap:6px}
+  .update-time{width:64px;font-size:11px}
+}
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="notice">
+  <span class="dot" aria-hidden="true"></span>
+  <span>本周新增 <b>12 集</b> 麻花短剧 · 《果冻实验室》第 4 季定档 11 月 28 日 · 99 制品厂开放二创素材库</span>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="/#top" aria-label="九一麻花首页">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" stroke="#1a1206" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4" stroke="#1a1206" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="1.6" fill="#1a1206"/>
+        </svg>
+      </span>
+      <span class="logo-text">九一麻花<small>JIUYI MAHUA</small></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="/#top">首页</a>
+      <a href="/#featured">精选短剧</a>
+      <a href="/#updates">更新表</a>
+      <a href="/#categories">分类</a>
+      <a href="/#deep">创作解析</a>
+      <a href="/#guide">观看指南</a>
+      <a href="/#rank">榜单</a>
+      <a href="/#community">社区</a>
+    </nav>
+    <div class="header-tools">
+      <div class="search-box">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input id="searchInput" type="search" placeholder="搜索条目 / 类型" aria-label="站内搜索">
+      </div>
+      <button class="btn-ghost" type="button" id="subBtn">订阅更新</button>
+      <button class="menu-btn" type="button" id="menuBtn" aria-label="展开导航菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="移动端导航">
+    <a href="/#top">首页</a>
+    <a href="/#featured">精选短剧</a>
+    <a href="/#updates">更新表</a>
+    <a href="/#categories">分类</a>
+    <a href="/#deep">创作解析</a>
+    <a href="/#guide">观看指南</a>
+    <a href="/#faq">常见问题</a>
+    <a href="/#rank">榜单</a>
+    <a href="/#community">社区</a>
+  </nav>
+</header>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">99 制品厂 · 社区视频品牌</span>
+      <h1>九一麻花</h1>
+      <p class="hero-desc">一个把短剧、定格动画与果冻质感视觉实验装进同一套更新节奏的创作厂牌。这里汇集 <strong>麻花系列短剧</strong>分集表、<strong>果冻实验室</strong>幕后拆解，以及 99 制品厂每月公开的二创素材与社区评分，适合追更党、动画爱好者和想了解短剧制作流程的观众。</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="/#featured">看本周精选
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-line" href="/#updates">查看分集更新表</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>186</b><span>在更条目</span></div>
+        <div><b>4.8</b><span>社区均分</span></div>
+        <div><b>32.6万</b><span>追更用户</span></div>
+        <div><b>11.25</b><span>今日更新</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hv-card hv-1"><img src="https://picsum.photos/seed/mahua-hero01/400/600" width="400" height="600" alt="九一麻花短剧主视觉封面" loading="lazy"></div>
+      <div class="hv-card hv-2"><img src="https://picsum.photos/seed/guodong-lab02/400/300" width="400" height="300" alt="果冻实验室定格动画场景" loading="lazy"></div>
+      <div class="hv-card hv-3"><img src="https://picsum.photos/seed/mahua-behind03/400/300" width="400" height="300" alt="麻花短剧片场花絮照片" loading="lazy"></div>
+      <div class="hv-badge"><b>今日 21:00</b>《麻花公寓》第 12 集上线</div>
+    </div>
+  </div>
+</section>
+
+<!-- 三栏门户布局 -->
+<div class="layout">
+
+  <!-- 左频道索引 -->
+  <aside class="channel-bar" aria-label="频道索引">
+    <div class="channel-title">频道索引</div>
+    <nav class="channel-list">
+      <a href="/#featured">麻花短剧 <span>64</span></a>
+      <a href="/#featured">果冻实验室 <span>28</span></a>
+      <a href="/#updates">分集更新 <span>今日11</span></a>
+      <a href="/#categories">定格动画 <span>37</span></a>
+      <a href="/#categories">都市喜剧 <span>41</span></a>
+      <a href="/#categories">悬疑微短剧 <span>19</span></a>
+      <a href="/#deep">幕后制作 <span>23</span></a>
+      <a href="/#guide">新观众入门 <span>—</span></a>
+      <a href="/#rank">社区榜单 <span>周更</span></a>
+      <a href="/#community">用户评论 <span>热</span></a>
+      <a href="/#news">相关资讯 <span>6</span></a>
+      <a href="/#faq">常见问题 <span>6</span></a>
+    </nav>
+    <div class="channel-note">
+      <b>本周制作进度</b>
+      《麻花公寓》第 12 集已完成调色；《果冻实验室》第 4 季第 2 集进入定格拍摄，预计 12 月 2 日交付。
+    </div>
+  </aside>
+
+  <!-- 主内容列 -->
+  <main class="main-col">
+
+    <!-- 1 主题概览 -->
+    <section class="section" id="overview">
+      <div class="sec-head">
+        <h2>麻花与果冻：这个厂牌在做什么</h2>
+        <span class="sub">领域概览</span>
+      </div>
+      <div class="overview">
+        <p><span class="mark">九一麻花</span>是一个以“短剧 + 定格动画”双线并行的社区视频品牌，隶属于 99 制品厂。旗下内容大致分三条主线：一是真人向的<b>麻花系列短剧</b>，以单元剧形式讲都市合租、职场误会与轻悬疑；二是<b>果冻实验室</b>，用硅胶、明胶与微缩布景做定格动画实验，视觉上呈现半透明果冻质感；三是<b>幕后制作</b>栏目，公开分镜、灯光测试与配音花絮。</p>
+        <p>从观众角度，这个品牌的内容有几个可辨识特征：单集时长集中在 6—12 分钟，适合通勤或睡前观看；每季 8—12 集，更新节奏固定在工作日 21:00；世界观上，麻花短剧的角色会在果冻实验室里以玩偶形式客串，形成跨系列彩蛋。当前值得关注的具体条目包括《麻花公寓》第三季、《果冻实验室》第四季、《午夜麻花铺》悬疑单元，以及 99 制品厂 11 月上线的二创素材库。</p>
+        <p>与一般短剧账号不同，这里的社区评分为公开维度，观众可从剧本、表演、美术、剪辑四项打分，这些分数会汇总进每周榜单，也是判断一个条目值不值得追的参考。下面的板块围绕可搜索的具体条目、更新表和判断标准展开。</p>
+      </div>
+    </section>
+
+    <!-- 2 精选内容推荐 -->
+    <section class="section" id="featured">
+      <div class="sec-head">
+        <h2>本周精选条目</h2>
+        <a class="more" href="/#rank">查看完整榜单 →</a>
+      </div>
+      <div class="card-grid" id="cardGrid">
+        <article class="card">
+          <div class="card-cover"><span class="card-type">都市喜剧</span><img src="https://picsum.photos/seed/mahua-apartment01/400/300" width="400" height="300" alt="麻花公寓第三季合租客厅剧照" loading="lazy"></div>
+          <div class="card-body">
+            <h3>麻花公寓 第三季</h3>
+            <p class="desc">六人合租故事进入第三季，主线从“抢厕所”升级为“整栋楼要拆迁”。每集一个生活议题，台词密度高，适合喜欢对话型喜剧的观众。</p>
+            <div class="tags"><span class="tag">合租日常</span><span class="tag">单元剧</span><span class="tag">群像</span></div>
+            <div class="card-meta"><span class="hot">热度 98.4</span><span>评分 <span class="score">9.1</span></span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-cover"><span class="card-type">定格动画</span><img src="https://picsum.photos/seed/guodong-season04/400/300" width="400" height="300" alt="果冻实验室第四季半透明玩偶场景" loading="lazy"></div>
+          <div class="card-body">
+            <h3>果冻实验室 第四季</h3>
+            <p class="desc">用明胶与硅胶制作的半透明角色，在微缩实验室里做“颜色混合”实验。第四季加入声音可视化，每集结尾附 30 秒拍摄花絮。</p>
+            <div class="tags"><span class="tag">定格动画</span><span class="tag">材质实验</span><span class="tag">无对白</span></div>
+            <div class="card-meta"><span class="hot">热度 94.2</span><span>评分 <span class="score">9.3</span></span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-cover"><span class="card-type">悬疑微短剧</span><img src="https://picsum.photos/seed/midnight-mahua01/400/300" width="400" height="300" alt="午夜麻花铺夜宵店门面剧照" loading="lazy"></div>
+          <div class="card-body">
+            <h3>午夜麻花铺</h3>
+            <p class="desc">以夜宵摊为舞台的轻悬疑单元剧，每集一位客人带来一件说不清来历的旧物。第 6 集“录音带”被社区评为本季最佳单集。</p>
+            <div class="tags"><span class="tag">轻悬疑</span><span class="tag">单元剧</span><span class="tag">夜宵摊</span></div>
+            <div class="card-meta"><span class="hot">热度 91.7</span><span>评分 <span class="score">8.8</span></span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-cover"><span class="card-type">幕后制作</span><img src="https://picsum.photos/seed/mahua-bts04/400/300" width="400" height="300" alt="麻花短剧分镜脚本与灯光测试现场" loading="lazy"></div>
+          <div class="card-body">
+            <h3>麻花片场日志：第 12 集调色</h3>
+            <p class="desc">从分镜表到成片调色，完整展示一集 9 分钟短剧的 17 天制作流程，包含两版被弃用的开场设计。</p>
+            <div class="tags"><span class="tag">分镜</span><span class="tag">调色</span><span class="tag">制作流程</span></div>
+            <div class="card-meta"><span class="hot">热度 82.5</span><span>时长 14 分钟</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-cover"><span class="card-type">职场喜剧</span><img src="https://picsum.photos/seed/mahua-office05/400/300" width="400" height="300" alt="麻花办公室加班场景剧照" loading="lazy"></div>
+          <div class="card-body">
+            <h3>麻花办公室：周报风云</h3>
+            <p class="desc">把“写周报”拍成谍战片的 8 分钟单集，会议室、打印机与咖啡机各自成为叙事道具，适合被周报困扰的上班族。</p>
+            <div class="tags"><span class="tag">职场</span><span class="tag">单集</span><span class="tag">讽刺</span></div>
+            <div class="card-meta"><span class="hot">热度 88.0</span><span>评分 <span class="score">8.6</span></span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-cover"><span class="card-type">定格动画</span><img src="https://picsum.photos/seed/guodong-color06/400/300" width="400" height="300" alt="果冻实验室颜色混合实验定格画面" loading="lazy"></div>
+          <div class="card-body">
+            <h3>果冻实验室：三色混合实验</h3>
+            <p class="desc">单集 5 分钟，红黄蓝三块果冻在斜坡上依次融合，全程无对白，靠材质反光与配乐推进节奏，是本系列入门首选。</p>
+            <div class="tags"><span class="tag">入门</span><span class="tag">无对白</span><span class="tag">色彩</span></div>
+            <div class="card-meta"><span class="hot">热度 90.1</span><span>评分 <span class="score">9.0</span></span></div>
+          </div>
+        </article>
+      </div>
+      <div class="no-result" id="noResult">没有找到匹配的条目，试试“麻花公寓”“果冻实验室”“悬疑”等关键词。</div>
+    </section>
+
+    <!-- 3 最新更新 -->
+    <section class="section" id="updates">
+      <div class="sec-head">
+        <h2>最新更新与动态</h2>
+        <span class="sub">截至 2026-11-25</span>
+      </div>
+      <ul class="update-list">
+        <li class="update-item"><div class="update-time"><em>今天 21:00</em>11-25</div><div class="update-main"><h4>《麻花公寓》第三季 第 12 集<span class="badge">已上线</span></h4><p>季终集“搬家前夜”，六人最后一次在客厅吃火锅，片尾彩蛋埋下第四季线索。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>今天 18:30</em>11-25</div><div class="update-main"><h4>《果冻实验室》第四季 预告片<span class="badge">新发布</span></h4><p>1 分 40 秒预告公开，本季新增声音可视化装置，正式定档 11 月 28 日。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>今天 14:00</em>11-25</div><div class="update-main"><h4>99 制品厂二创素材库<span class="badge">开放</span></h4><p>首批 120 条无版权音效与 40 组分镜模板上线，供社区成员制作二创短片。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>昨天 21:10</em>11-24</div><div class="update-main"><h4>《午夜麻花铺》第 9 集<span class="badge">已上线</span></h4><p>“旧相机”单元，客人带来的相机每按一次快门就少一段记忆，本集评分 8.9。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>昨天 19:00</em>11-24</div><div class="update-main"><h4>社区评分规则调整<span class="badge">规则</span></h4><p>新增“美术”独立评分维度，原“画面”项拆分为美术与摄影两项，历史分数已完成折算。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>11-22 20:00</em></div><div class="update-main"><h4>《麻花办公室》特别篇<span class="badge">已上线</span></h4><p>“年会节目”12 分钟加长版，含三段被剪掉的路演片段。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>11-20 21:00</em></div><div class="update-main"><h4>《果冻实验室》第三季收官<span class="badge">完结</span></h4><p>第三季最后一集“融化与重塑”上线，播放量突破 480 万。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>11-18 16:00</em></div><div class="update-main"><h4>幕后栏目《麻花片场日志》<span class="badge">更新</span></h4><p>新增第 12 集调色篇，展示 DaVinci 调色节点与两版开场对比。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>11-15 21:00</em></div><div class="update-main"><h4>《麻花公寓》第三季 第 10 集<span class="badge">已上线</span></h4><p>“房东来了”单元，全季单集播放增速最快，48 小时破 200 万。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>11-12 12:00</em></div><div class="update-main"><h4>配音演员访谈上线<span class="badge">新栏目</span></h4><p>《果冻实验室》声音设计访谈，讲清无对白动画如何用环境音塑造角色。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>11-08 21:00</em></div><div class="update-main"><h4>《午夜麻花铺》第 7 集<span class="badge">已上线</span></h4><p>“录音带”单元上线，社区评分 9.0，为目前该系列最高单集。</p></div></li>
+        <li class="update-item"><div class="update-time"><em>11-03 10:00</em></div><div class="update-main"><h4>冬季档片单公布<span class="badge">预告</span></h4><p>12 月至次年 1 月将上线 3 部新短剧与 1 部定格动画，含《麻花急诊室》。</p></div></li>
+      </ul>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section class="section" id="categories">
+      <div class="sec-head">
+        <h2>按类型找内容</h2>
+        <span class="sub">8 个垂类</span>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-item" href="/#featured"><b>都市喜剧</b><span>合租、职场、邻里</span></a>
+        <a class="cat-item" href="/#featured"><b>悬疑微短剧</b><span>单元谜题、旧物</span></a>
+        <a class="cat-item" href="/#featured"><b>定格动画</b><span>材质、微缩布景</span></a>
+        <a class="cat-item" href="/#featured"><b>无对白短片</b><span>视觉叙事、配乐</span></a>
+        <a class="cat-item" href="/#deep"><b>幕后制作</b><span>分镜、调色、配音</span></a>
+        <a class="cat-item" href="/#updates"><b>分集更新表</b><span>播出时间与集数</span></a>
+        <a class="cat-item" href="/#guide"><b>新观众入门</b><span>先看哪几集</span></a>
+        <a class="cat-item" href="/#community"><b>社区讨论</b><span>评分与评论</span></a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析 -->
+    <section class="section" id="deep">
+      <div class="sec-head">
+        <h2>深度解析：麻花短剧与果冻动画的差异</h2>
+        <span class="sub">阅读约 6 分钟</span>
+      </div>
+      <div class="deep">
+        <p>很多观众第一次接触这个厂牌时，会把“麻花”与“果冻”当成同一套内容的不同叫法。实际上它们是两条制作逻辑完全不同的产品线，理解差异能帮你更快决定先看哪一部。</p>
+
+        <h3>一、制作方式决定了叙事节奏</h3>
+        <p>麻花系列短剧是真人实拍，拍摄周期短、台词量大，因此叙事依赖对话推进。单集 6—12 分钟内通常要完成一个完整的小冲突，节奏接近情景喜剧。果冻实验室则是定格动画，每秒需要 12—24 帧逐帧拍摄，一集 5 分钟的内容往往要拍三到四周，所以它天然倾向于少台词甚至无对白，靠动作、材质和配乐表达。</p>
+        <ul>
+          <li><b>真人短剧</b>：信息密度高，适合边做事边看，错过一句台词可能漏掉笑点。</li>
+          <li><b>定格动画</b>：节奏慢，画面信息集中，适合专注观看，反复暂停看细节。</li>
+          <li><b>共同点</b>：都以单元剧为主，单集可独立观看，不强制按顺序追。</li>
+        </ul>
+
+        <h3>二、评判维度不一样</h3>
+        <p>社区评分把两类内容放在同一套四项维度里，但权重感受并不相同。真人短剧的分数主要拉开在“剧本”和“表演”上，观众会具体讨论某句台词是否自然、某个反应是否过头。定格动画的分数则更多由“美术”决定，果冻材质的透光、布景的微缩比例、镜头移动的稳定性，都是评论区的常见话题。</p>
+        <div class="quote">以《午夜麻花铺》第 6 集为例，它得分高的原因不是悬念多复杂，而是<b>旧物道具的可信度</b>——录音带的磨损、磁带的转动声都做了实物质感，观众愿意为这种细节打分。</div>
+
+        <h3>三、跨系列彩蛋的观看顺序</h3>
+        <p>两条线共享一个松散的世界观：麻花短剧里的角色会以玩偶形态出现在果冻实验室，果冻实验室的某些道具又会回到真人剧里当背景。如果你在意彩蛋，建议的顺序是：</p>
+        <ul>
+          <li>先看《麻花公寓》第一季，建立角色关系；</li>
+          <li>再看《果冻实验室》第二季，认识玩偶化后的角色；</li>
+          <li>最后看《午夜麻花铺》，它的旧物设定与实验室道具呼应最多。</li>
+        </ul>
+
+        <h3>四、更新节奏与投入成本</h3>
+        <p>真人短剧基本保持每周两更，季与季之间休息两到三周；定格动画因为制作周期长，通常一季 8 集要播两个月，中间可能插入制作特辑填补空档。对观众来说，这意味着追真人线的更新压力更小、讨论更密集；追动画线则更适合攒完一季一次性看完。</p>
+        <p>如果你时间有限，可以只按“单集评分 + 社区讨论量”两个指标筛选，评分 8.8 以上且评论超过 200 条的单集，通常代表了这一季的水准上限。</p>
+      </div>
+    </section>
+
+    <!-- 6 体验指南 -->
+    <section class="section" id="guide">
+      <div class="sec-head">
+        <h2>观看路径：从哪一集开始</h2>
+        <span class="sub">新观众指南</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-no">1</span>
+          <div class="step-body">
+            <h4>先用 5 分钟试《果冻实验室：三色混合实验》</h4>
+            <p>无对白、单集短、视觉完成度高，能在最短时间内判断你喜不喜欢果冻质感的美术风格。不喜欢也不浪费时间。</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-no">2</span>
+          <div class="step-body">
+            <h4>再看《麻花公寓》第一季第 1—3 集</h4>
+            <p>前三集确立六位主角的性格和合租空间，是后续所有笑点的前提。若前三集看不进去，后面大概率也不合适。</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-no">3</span>
+          <div class="step-body">
+            <h4>按兴趣挑一条支线：悬疑或职场</h4>
+            <p>喜欢谜题的看《午夜麻花铺》，喜欢讽刺的看《麻花办公室：周报风云》。两条支线都是单元剧，不需要补齐前情。</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-no">4</span>
+          <div class="step-body">
+            <h4>用社区评分做二次筛选</h4>
+            <p>追到中途如果觉得某一集拖沓，直接看四项评分：剧本低于 7.5 的集可以跳过，美术低于 8 的动画集通常镜头调度较弱。</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-no">5</span>
+          <div class="step-body">
+            <h4>想深入就补幕后栏目</h4>
+            <p>《麻花片场日志》与声音设计访谈适合已经看完正片的人，能解释某些镜头为什么这样拍，但先看正片体验更好。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 FAQ -->
+    <section class="section" id="faq">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <span class="sub">6 个高频提问</span>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>麻花短剧一般多久更新一次？</summary>
+          <div class="ans">真人短剧通常每周两更，固定在周一与周四 21:00；季与季之间休息两到三周。定格动画《果冻实验室》因逐帧拍摄，一般每周一更，一季 8 集播完约需两个月。</div>
+        </details>
+        <details>
+          <summary>《麻花公寓》和《午夜麻花铺》有什么区别？</summary>
+          <div class="ans">前者是连续性的合租群像喜剧，角色关系贯穿全季，笑点依赖人物性格；后者是单元式轻悬疑，每集一位新客人、一件旧物，单集独立成立。前者适合追角色，后者适合随手看一集。</div>
+        </details>
+        <details>
+          <summary>第一次接触，从哪个条目开始看比较好？</summary>
+          <div class="ans">建议先看《果冻实验室：三色混合实验》判断美术偏好，再看《麻花公寓》第一季前三集建立角色认知。若只对悬疑感兴趣，可直接从《午夜麻花铺》第 6 集“录音带”入手，它是公认的单集水准高点。</div>
+        </details>
+        <details>
+          <summary>果冻实验室为什么没有台词？</summary>
+          <div class="ans">定格动画每秒需 12—24 帧逐帧拍摄，加入口型同步会显著延长制作周期。制作团队选择用材质反光、环境音与配乐承担叙事，因此观看时建议戴耳机，声音信息量比画面旁白更大。</div>
+        </details>
+        <details>
+          <summary>社区评分的四项维度分别看什么？</summary>
+          <div class="ans">剧本看冲突是否成立与台词自然度；表演看真人演员的反应节奏；美术看布景、道具与材质质感；剪辑看单集节奏与转场。定格动画通常美术分最高，真人短剧通常剧本分波动最大。</div>
+        </details>
+        <details>
+          <summary>99 制品厂的二创素材库能用来做什么？</summary>
+          <div class="ans">素材库包含无版权音效、分镜模板与部分定格动画的拍摄参数说明，可用于个人二创短片、学习定格拍摄或做幕后解析视频。使用前请阅读页面内附的使用说明，商业用途需另行申请。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8 用户评论 -->
+    <section class="section" id="community">
+      <div class="sec-head">
+        <h2>社区评论</h2>
+        <span class="sub">近 7 天精选</span>
+      </div>
+      <div class="comments">
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#ffb020">林</span><b>林间有雾</b><time>11-25 21:42</time></div><p>《麻花公寓》第 12 集季终吃火锅那段，六个人谁都没说话，就靠夹菜的动作把关系讲完了，比台词好。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#4dd2c0">阿</span><b>阿柚不加冰</b><time>11-25 20:15</time></div><p>果冻实验室第四季预告里的声音可视化有点东西，颜色跟着低频一起抖，希望正片别只出现在片头。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#7c8cff">陈</span><b>陈默看片</b><time>11-24 23:06</time></div><p>《午夜麻花铺》第 9 集旧相机设定不错，但结尾解释得太满，留白一点我会给 9 分以上，现在 8.6 合理。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#ff7a3d">周</span><b>周末补剧人</b><time>11-24 19:30</time></div><p>每周两更的节奏对上班族太友好了，周四一集刚好撑到周末，不用一次性刷完。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#ffb020">小</span><b>小满不加班</b><time>11-23 22:18</time></div><p>《麻花办公室：周报风云》把打印机拍成反派，这个创意我给满分，就是我司打印机真的会卡纸。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#4dd2c0">桔</span><b>桔子汽水</b><time>11-23 15:47</time></div><p>美术评分单独拆出来之后，果冻实验室的分数终于合理了，之前和真人剧一起比太吃亏。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#7c8cff">老</span><b>老K的硬盘</b><time>11-22 21:03</time></div><p>片场日志第 12 集调色篇，两版开场我都看了，被弃用的那版其实更有味道，可能节奏确实拖。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#ff7a3d">南</span><b>南墙撞过</b><time>11-22 10:26</time></div><p>直说，第三季第 9 集有点水，全程在客厅聊天，剧本分 7.2 不冤。但第 10 集房东来了又拉回来。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#ffb020">柚</span><b>柚子茶不加糖</b><time>11-21 23:55</time></div><p>定格动画的布景我能暂停看半天，那个微缩冰箱里的饮料瓶是真的灌了液体，反光太真实了。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#4dd2c0">半</span><b>半糖去冰</b><time>11-21 18:09</time></div><p>二创素材库的音效包质量比预期好，已经拿去做了一版麻花公寓的手书，等审核。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#7c8cff">路</span><b>路过打酱油</b><time>11-20 20:40</time></div><p>我是从果冻实验室入坑的，回头补麻花公寓发现玩偶彩蛋，这种互相埋梗的玩法挺上头。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#ff7a3d">桃</span><b>桃桃乌龙</b><time>11-20 13:12</time></div><p>配音访谈里讲环境音那段很实用，原来无对白动画的“安静”是刻意做出来的，不是没声音。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#ffb020">一</span><b>一只栗子</b><time>11-19 22:37</time></div><p>冬季档片单里最期待《麻花急诊室》，医疗题材拍成喜剧难度不小，希望别只靠误会撑笑点。</p></div>
+        <div class="comment"><div class="comment-head"><span class="avatar" style="background:#4dd2c0">海</span><b>海盐芝士</b><time>11-19 16:50</time></div><p>整体不错，就是更新表如果能按单集评分排序就好了，找高分集现在得自己翻。</p></div>
+      </div>
+    </section>
+
+    <!-- 9 相关资讯 -->
+    <section class="section" id="news">
+      <div class="sec-head">
+        <h2>相关资讯</h2>
+        <span class="sub">11 月动态</span>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/guodong-news01/600/400" width="600" height="400" alt="果冻实验室第四季定档发布会现场" loading="lazy">
+          <div class="news-main">
+            <h4>《果冻实验室》第四季定档 11 月 28 日</h4>
+            <p>本季共 8 集，新增声音可视化装置，首集将在上线当晚同步直播拍摄花絮。</p>
+            <time>2026-11-25</time>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/mahua-news02/600/400" width="600" height="400" alt="麻花公寓季终集客厅火锅场景" loading="lazy">
+          <div class="news-main">
+            <h4>《麻花公寓》第三季收官，第四季进入剧本阶段</h4>
+            <p>季终集上线 6 小时播放破 300 万，制作方确认第四季将延续合租主线并引入新邻居角色。</p>
+            <time>2026-11-25</time>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/mahua-news03/600/400" width="600" height="400" alt="99制品厂二创素材库界面截图" loading="lazy">
+          <div class="news-main">
+            <h4>99 制品厂开放二创素材库首批资源</h4>
+            <p>包含 120 条无版权音效与 40 组分镜模板，社区成员可下载用于非商业二创。</p>
+            <time>2026-11-25</time>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/mahua-news04/600/400" width="600" height="400" alt="社区评分维度调整说明页" loading="lazy">
+          <div class="news-main">
+            <h4>社区评分新增“美术”独立维度</h4>
+            <p>原“画面”项拆分为美术与摄影，历史分数按公式折算，榜单已在 11 月 25 日完成更新。</p>
+            <time>2026-11-24</time>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/mahua-news05/600/400" width="600" height="400" alt="冬季档片单海报墙" loading="lazy">
+          <div class="news-main">
+            <h4>冬季档片单公布：3 部短剧与 1 部定格动画</h4>
+            <p>12 月至次年 1 月上线《麻花急诊室》等新作，其中两部为首次尝试的医疗与体育题材。</p>
+            <time>2026-11-03</time>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/mahua-news06/600/400" width="600" height="400" alt="午夜麻花铺录音带单元剧照" loading="lazy">
+          <div class="news-main">
+            <h4>《午夜麻花铺》第 6 集“录音带”成系列最高分</h4>
+            <p>该集社区评分 9.0，评论区集中讨论旧物道具的实物质感与结尾留白处理。</p>
+            <time>2026-11-08</time>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section class="section" id="related">
+      <div class="sec-head">
+        <h2>延伸方向</h2>
+        <span class="sub">标签索引</span>
+      </div>
+      <div class="rec-tags">
+        <a href="/#featured">麻花公寓角色关系梳理</a>
+        <a href="/#featured">果冻实验室材质工艺</a>
+        <a href="/#deep">定格动画逐帧拍摄流程</a>
+        <a href="/#guide">单元剧与连续剧的取舍</a>
+        <a href="/#updates">冬季档新作前瞻</a>
+        <a href="/#community">社区评分维度说明</a>
+        <a href="/#news">99 制品厂二创生态</a>
+        <a href="/#featured">无对白短片配乐选择</a>
+      </div>
+    </section>
+
+    <!-- 11 榜单 -->
+    <section class="section" id="rank">
+      <div class="sec-head">
+        <h2>本周社区榜单</h2>
+        <span class="sub">按四项综合评分</span>
+      </div>
+      <div class="rank-list">
+        <div class="rank-item"><span class="rank-no">1</span><div class="rank-name">果冻实验室 第四季 预告<span>定格动画 · 11-25 发布</span></div><span class="rank-val">9.4</span></div>
+        <div class="rank-item"><span class="rank-no">2</span><div class="rank-name">麻花公寓 第三季 第 12 集<span>都市喜剧 · 季终集</span></div><span class="rank-val">9.2</span></div>
+        <div class="rank-item"><span class="rank-no">3</span><div class="rank-name">午夜麻花铺 第 6 集 录音带<span>悬疑微短剧 · 系列最高</span></div><span class="rank-val">9.0</span></div>
+        <div class="rank-item"><span class="rank-no">4</span><div class="rank-name">果冻实验室：三色混合实验<span>定格动画 · 入门首选</span></div><span class="rank-val">9.0</span></div>
+        <div class="rank-item"><span class="rank-no">5</span><div class="rank-name">麻花办公室：周报风云<span>职场喜剧 · 单集</span></div><span class="rank-val">8.6</span></div>
+        <div class="rank-item"><span class="rank-no">6</span><div class="rank-name">午夜麻花铺 第 9 集 旧相机<span>悬疑微短剧 · 11-24 上线</span></div><span class="rank-val">8.6</span></div>
+        <div class="rank-item"><span class="rank-no">7</span><div class="rank-name">麻花片场日志 第 12 集调色<span>幕后制作 · 14 分钟</span></div><span class="rank-val">8.5</span></div>
+        <div class="rank-item"><span class="rank-no">8</span><div class="rank-name">麻花公寓 第三季 第 9 集<span>都市喜剧 · 争议集</span></div><span class="rank-val">7.4</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="aside" aria-label="辅助信息">
+    <div class="aside-card">
+      <h3>今日热榜</h3>
+      <ul class="hot-list">
+        <li><span class="n">1</span><span>麻花公寓 第三季 季终集</span></li>
+        <li><span class="n">2</span><span>果冻实验室 第四季 预告</span></li>
+        <li><span class="n">3</span><span>午夜麻花铺 第 9 集</span></li>
+        <li><span class="n">4</span><span>99 制品厂二创素材库</span></li>
+        <li><span class="n">5</span><span>麻花办公室 年会特别篇</span></li>
+        <li><span class="n">6</span><span>麻花片场日志 调色篇</span></li>
+      </ul>
+    </div>
+    <div class="aside-card">
+      <h3>更新时间线</h3>
+      <div class="timeline">
+        <div class="tl-item"><time>11-25 21:00</time><b>麻花公寓 第 12 集</b><p>季终集上线，彩蛋埋第四季线索。</p></div>
+        <div class="tl-item"><time>11-25 18:30</time><b>果冻实验室 预告</b><p>第四季 1 分 40 秒预告发布。</p></div>
+        <div class="tl-item"><time>11-28 20:00</time><b>果冻实验室 第四季</b><p>首集上线，同步直播花絮。</p></div>
+        <div class="tl-item"><time>12-02 21:00</time><b>麻花急诊室 首播</b><p>冬季档第一部新短剧。</p></div>
+      </div>
+    </div>
+    <div class="aside-card">
+      <h3>可信度分层</h3>
+      <div class="trust">
+        <div class="trust-row"><span>官方信息</span><span class="bar"><i style="width:96%"></i></span><b>96%</b></div>
+        <div class="trust-row"><span>制作方访谈</span><span class="bar"><i style="width:91%"></i></span><b>91%</b></div>
+        <div class="trust-row"><span>社区评分</span><span class="bar"><i style="width:84%"></i></span><b>84%</b></div>
+        <div class="trust-row"><span>观众推测</span><span class="bar"><i style="width:62%"></i></span><b>62%</b></div>
+      </div>
+      <p style="font-size:11.5px;color:var(--text-3);margin-top:12px;line-height:1.7">社区评分来自公开打分汇总，观众推测类内容已在条目页标注。</p>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="/#top" aria-label="九一麻花首页">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" stroke="#1a1206" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4" stroke="#1a1206" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="1.6" fill="#1a1206"/>
+            </svg>
+          </span>
+          <span class="logo-text">九一麻花<small>JIUYI MAHUA</small></span>
+        </a>
+        <p>99 制品厂旗下社区视频品牌，以麻花系列短剧与果冻实验室定格动画为核心，公开分集更新、制作解析与社区评分。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容</h4>
+        <a href="/#featured">麻花短剧</a>
+        <a href="/#featured">果冻实验室</a>
+        <a href="/#updates">分集更新表</a>
+        <a href="/#categories">类型分类</a>
+        <a href="/#rank">社区榜单</a>
+      </div>
+      <div class="footer-col">
+        <h4>了解</h4>
+        <a href="/#deep">创作解析</a>
+        <a href="/#guide">观看指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#community">社区评论</a>
+      </div>
+      <div class="footer-col">
+        <h4>参与</h4>
+        <a href="/#community">发表评论</a>
+        <a href="/#updates">二创素材库</a>
+        <a href="/#guide">新观众入门</a>
+        <a href="/#related">延伸方向</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="meta">
+        <span>九一麻花 · 99 制品厂</span>
+        <span>内容更新至 2026-11-25</span>
+        <span>评分与热度为社区示例数据</span>
+      </div>
+      <div>© 2026 九一麻花 · 99 制品厂</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  if(menuBtn && mobileNav){
+    menuBtn.addEventListener('click', function(){
+      var open = mobileNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mobileNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  var input = document.getElementById('searchInput');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#cardGrid .card'));
+  var noResult = document.getElementById('noResult');
+  if(input){
+    input.addEventListener('input', function(){
+      var q = input.value.trim().toLowerCase();
+      var shown = 0;
+      cards.forEach(function(card){
+        var text = card.textContent.toLowerCase();
+        var match = !q || text.indexOf(q) !== -1;
+        card.classList.toggle('hidden', !match);
+        if(match) shown++;
+      });
+      if(noResult) noResult.classList.toggle('show', shown === 0);
+    });
+  }
+
+  var subBtn = document.getElementById('subBtn');
+  if(subBtn){
+    subBtn.addEventListener('click', function(){
+      var on = subBtn.getAttribute('data-on') === '1';
+      subBtn.setAttribute('data-on', on ? '0' : '1');
+      subBtn.textContent = on ? '订阅更新' : '已订阅 ✓';
+    });
+  }
+})();
+</script>
+</body>
+  </html>
